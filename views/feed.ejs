@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <title>Finsta </title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="feed.css">
+    <script src="https://kit.fontawesome.com/8ea013bdc7.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Finsta-Feed</h1>
+        <a href="/profile" class="btn btn-default btn-sm">Profile</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+       
+
+          <ul class="messages">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <li class="message">
+              <span class="hide"><%= posts[i]._id %></span>
+              <a href="/post/<%= posts[i]._id %>">
+               
+                <img src="<%= posts[i].img %>" alt="">
+                <h4><%= posts[i].caption %></h4>
+                <a href="/page/<%= posts[i].postedBy %>">User:<%= posts[i].postedBy %></a>
+              </a>
+              <a href="/post/<%= posts[i]._id %>"><i class="far fa-comment"></i></a>
+              <span><%= posts[i].likes %></span>
+              <% if(posts[i].likes > 0){ %>
+                <span><i class="fas fa-heart liked" aria-hidden="true"></i></span>
+                <%} else {%>
+                  <span><i class="far fa-heart liked" aria-hidden="true"></i></span>
+                  <%}%>
+            </li>
+          <% } %>
+          </ul>
+
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

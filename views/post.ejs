@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>Post Page</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="post.css">
+    <script src="https://kit.fontawesome.com/8ea013bdc7.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <a href="/profile" class="btn btn-default btn-sm">Profile</a>
+        <a href="/feed" class="btn btn-default btn-sm">Feed</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+      <div>
+        <h2>Comment</h2>
+              <% if (user.local.email) { %>
+                <form action="/makeComment/<%= posts._id %>" method="POST">
+                  <input type="text" name="comments" placeholder="comment">
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
+              <% } %>
+      
+      </div>
+       
+        <div class="col-sm-6">
+          <h3>Posts</h3>
+          <ul class="messages">
+            <li class="message">
+              <h4><%= posts.caption %></h4>
+              <img src="../<%= posts.img %>" alt="">
+              <span><%= posts.likes %></span>
+              
+              <% if(posts.likes > 0){ %>
+                <span><i class="fas fa-heart liked" aria-hidden="true"></i></span>
+                <%} else {%>
+                  <span><i class="far fa-heart liked" aria-hidden="true"></i></span>
+                  <%}%>
+
+            </li>
+            <ul>
+            <% for(var i=0; i<comments.length; i++) {%>
+              <li class="message">
+                <span><%= comments[i].comments %></span>
+              </li>
+            <% } %>
+            </ul>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

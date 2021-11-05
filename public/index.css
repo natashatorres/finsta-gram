@@ -1,0 +1,26 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  font-family: 'Amiko', Arial, Helvetica, sans-serif;
+  color:white;
+}
+img{
+  height: 40em;
+  display: block;
+}
+
+.container{
+  background-image: url('img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.btn{
+  text-transform: uppercase;
+  background-color:  rgb(242 206 96);
+  border: none;
+  color:white;
+  margin-bottom: 10em;
+
+}

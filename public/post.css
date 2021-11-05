@@ -1,0 +1,53 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  font-family: 'Amiko', Arial, Helvetica, sans-serif;
+  color:white;
+  text-transform: uppercase;
+}
+img{
+  height: 30em;
+
+}
+
+.container{
+  background-image: url('img/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;  
+}
+
+.btn{
+  text-transform: uppercase;
+  background-color:  rgb(242 206 96);
+  border: none;
+  color:white;
+  height:2em;
+}
+
+.messages{
+  list-style:none;
+  align-items: center;
+  text-align:center;
+  margin: auto 0;
+}
+
+.message{
+  margin: auto 0;
+}
+.caption{
+  width: 15em;
+} 
+
+h4{
+  font-size: 2em;
+  color: rgb(242 206 96);
+}
+
+a{
+  font-size:1em;
+  color: white;
+}
+
+fa-heart{
+  color: rgb(236 255 209)
+}

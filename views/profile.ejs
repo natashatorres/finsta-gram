@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <title>Profile</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/8ea013bdc7.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1>Profile Page</h1>
+        <a href="/feed" class="btn btn-default btn-sm">Feed</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3> Local</h3>
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+            </div>
+
+            <h2>Make A Post</h2>
+            <% if (user.local.email) { %>
+              <form action="/makePost" enctype="multipart/form-data" method="POST">
+                <input type="text" name="caption" placeholder="caption" class="caption">
+                <button type="submit" class="btn btn-default btn-sm">Submit</button>
+                <input type="file" name="file-to-upload">
+              </form>
+            <% } %>
+        </div>
+      
+         
+        <div class="col-sm-6">
+          <h3> My Posts</h3>
+          <ul class="messages">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <li class="message">
+              <img src="<%= posts[i].img %>" alt="">
+              <span class="hide"><%= posts[i]._id %></span>
+              <a href="/post/<%= posts[i]._id %>">
+                <h4><%= posts[i].caption %></h4>
+              </a>
+              <span><%= posts[i].likes %></span>
+              <% if(posts[i].likes > 0){ %>
+                <span><i class="fas fa-heart liked" aria-hidden="true"></i></span>
+                <%} else {%>
+                  <span><i class="far fa-heart liked" aria-hidden="true"></i></span>
+                  <%}%>
+            </li>
+          <% } %>
+          </ul>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
